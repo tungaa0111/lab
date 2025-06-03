@@ -1,12 +1,20 @@
 class Vehicle {
     protected String brand;
+    protected double fuel; // Шинэ атрибут
 
     public Vehicle(String brand) {
         this.brand = brand;
+        this.fuel = 0.0; // Default fuel
+    }
+
+    public void refuel(double amount) {
+        fuel += amount;
+        System.out.println(brand + " refueled: " + amount + "L. Total fuel: " + fuel + "L");
     }
 
     public void displayInfo() {
         System.out.println("Vehicle brand: " + brand);
+        System.out.println("Fuel: " + fuel + "L");
     }
 }
 
@@ -45,6 +53,10 @@ public class VehicleTest {
         Car car = new Car("Toyota", 4);
         Truck truck = new Truck("Volvo", 18.5);
 
+        car.refuel(20);
+        truck.refuel(100);
+
+        System.out.println();
         car.displayInfo();
         System.out.println();
         truck.displayInfo();
